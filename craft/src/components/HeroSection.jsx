@@ -15,7 +15,6 @@ const HeroSection = () => {
                         width: '58%',
                         height: { xs: 'auto', md: '60vh' },
                         overflow: 'hidden',
-                        border: '1px solid red',
                         display: 'flex',
                     }}
                 >
@@ -29,15 +28,45 @@ const HeroSection = () => {
                         }}
                     />
                 </Box>
+                <Box
+                    sx={{
+                        p: 4,
+                        maxWidth: 400,
+                        mx: 'auto',
+                        textAlign: 'center',
+                    }}
+                >
+                    <Typography
+                        variant="h4"
+                        component="h2"
+                        gutterBottom
+                        sx={{
+                            marginTop: '5px',
+                            marginBottom: '40px',
+                            fontSize: '40px',
+                            fontFamily: "'Playfair Display', serif",
+                        }}
+                    >
+                        Welcome to <Box component="span" sx={{ color: 'red' }}>LUXRIO</Box>
+                    </Typography>
 
-                <Box sx={{ p: 4, mr: 12, ml: 4 }}>
-                    <Typography variant="h4" component="h2" gutterBottom>
-                        Welcome to Our Store
+
+                    <Typography
+                        variant="body1"
+                        sx={{
+                            marginTop: '5px',
+                            lineHeight: 1.8,
+                            fontSize: '18px',
+                            fontFamily: "'Playfair Display', serif",
+                        }}
+                    >
+                        Elevate your style with our exclusive collection of handcrafted necklaces and rings. Each piece is designed to reflect timeless elegance, blending modern sophistication with classic beauty. Whether for a special occasion or everyday luxury, our jewelry brings brilliance and meaning to every moment.
                     </Typography>
-                    <Typography variant="body1">
-                        Explore our exclusive collection of necklaces and rings.
-                    </Typography>
+
                 </Box>
+
+
+
             </Box>
         </Box>
     );
