@@ -121,7 +121,12 @@ const ShopByCategory = () => {
                           <Typography
                             variant="h6"
                             align="center"
-                            sx={{ fontWeight: 600, color: '#333', letterSpacing: 0.5 }}
+                            sx={{
+                              fontWeight: 600,
+                              color: '#333',
+                              letterSpacing: 0.5,
+                              fontFamily: "'Playfair Display', serif",
+                            }}
                           >
                             {category.title}
                           </Typography>
@@ -130,6 +135,7 @@ const ShopByCategory = () => {
                     </Grid>
                   ))}
                 </Grid>
+
               </Grid>
 
             </Grid>
