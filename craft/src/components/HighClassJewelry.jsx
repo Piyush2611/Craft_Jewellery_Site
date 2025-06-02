@@ -15,25 +15,70 @@ const HighClassJewelry = () => {
 
   return (
     <Box sx={{ textAlign: 'center', py: 12 }}>
-      {/* Headings Section */}
       <Box sx={{ mb: 6, mt: 3 }}>
-        <Typography variant="subtitle2" sx={{ color: 'red', mb: 1 }}>
+        <Typography
+          variant="subtitle2"
+          sx={{
+            color: 'red',
+            mb: 1,
+            // textAlign: 'left',
+            fontFamily: "'Playfair Display', serif",
+            letterSpacing: 1,
+            lineHeight: 1.2,
+          }}
+        >
           FIND THE PERFECT
         </Typography>
 
-        <Typography variant="h3" sx={{ mb: 2}}>
+        <Typography
+          variant="h3"
+          sx={{
+            mb: 2,
+            // textAlign: 'left',
+            fontFamily: "'Playfair Display', serif",
+            color: 'white',
+            letterSpacing: 1,
+            lineHeight: 1.2,
+          }}
+        >
           HIGH CLASS JEWELLERY
         </Typography>
 
-        <Typography variant="subtitle2" sx={{ mb: 3 }}>
-          Elevate your elegance with timeless pieces
+        <Typography
+          variant="subtitle2"
+          sx={{
+            mb: 3,
+            // textAlign: 'left',
+            fontFamily: "'Playfair Display', serif",
+            letterSpacing: 1,
+            lineHeight: 1.2,
+            color: 'red', // added so subtitle matches color styling
+          }}
+        >
+          #Elevate your elegance with timeless pieces
         </Typography>
       </Box>
 
       <Grid container spacing={13} justifyContent="center">
         {items.map((item, index) => (
           <Grid item xs={6} md={2} key={index}>
-            <Card sx={{ backgroundColor: '#2a2a2a', color: 'white' }}>
+            <Card
+              elevation={0}
+              sx={{
+                backgroundColor: '#2a2a2a',
+                color: 'white',
+                border: '1px solid #ddd',
+                width: '100%',
+                maxWidth: 250,
+                boxShadow: '0 8px 15px rgba(0,0,0,0.1)',
+                borderRadius: 3,
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-8px)',
+                  boxShadow: '0 15px 30px rgba(0,0,0,0.2)',
+                },
+              }}
+            >
               <CardMedia
                 component="img"
                 height="140"
@@ -47,6 +92,7 @@ const HighClassJewelry = () => {
                 </Typography>
               </CardContent>
             </Card>
+
           </Grid>
         ))}
       </Grid>
