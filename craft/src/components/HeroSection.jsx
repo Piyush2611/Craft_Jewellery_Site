@@ -36,12 +36,33 @@ const HeroSection = () => {
                         textAlign: 'center',
                     }}
                 >
-                    <Typography variant="h4" component="h2" gutterBottom sx={{marginTop:'5px', marginBottom:'40px'}}>
-                        Welcome to LUXRIO
+                    <Typography
+                        variant="h4"
+                        component="h2"
+                        gutterBottom
+                        sx={{
+                            marginTop: '5px',
+                            marginBottom: '40px',
+                            fontSize: '40px',
+                            fontFamily: "'Playfair Display', serif",
+                        }}
+                    >
+                        Welcome to <Box component="span" sx={{ color: 'red' }}>LUXRIO</Box>
                     </Typography>
-                    <Typography variant="body1"sx={{marginTop:'5px', lineHeight: 1.8}}>
+
+
+                    <Typography
+                        variant="body1"
+                        sx={{
+                            marginTop: '5px',
+                            lineHeight: 1.8,
+                            fontSize: '18px',
+                            fontFamily: "'Playfair Display', serif",
+                        }}
+                    >
                         Elevate your style with our exclusive collection of handcrafted necklaces and rings. Each piece is designed to reflect timeless elegance, blending modern sophistication with classic beauty. Whether for a special occasion or everyday luxury, our jewelry brings brilliance and meaning to every moment.
                     </Typography>
+
                 </Box>
 
 
