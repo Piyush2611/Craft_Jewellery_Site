@@ -7,11 +7,11 @@ import logo from '../assets/logo.png';
 
 const navLinks = [
   // { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
   { label: 'Ring', path: '/ring' },
   { label: 'Daimond', path: '/daimond' },
   { label: 'Earings', path: '/earings' },
   { label: 'Cosmatics', path: '/cosmatics' },
+  { label: 'About', path: '/about' },
 ];
 
 const Header = () => {
@@ -42,10 +42,17 @@ const Header = () => {
               to={path}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
-              <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                <Typography variant="body1">{label}</Typography>
-                <ArrowDropDownIcon fontSize="small" />
-              </Box>
+              <Typography
+                variant="body1"
+                sx={{
+                  cursor: 'pointer',
+                  '&:hover': {
+                    textDecoration: 'underline',
+                  },
+                }}
+              >
+                {label}
+              </Typography>
             </Link>
           ))}
         </Box>
