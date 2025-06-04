@@ -13,13 +13,13 @@ import BrushIcon from '@mui/icons-material/Brush';
 import InfoIcon from '@mui/icons-material/Info';
 
 
-const navLinks = [
-  { label: 'Ring', path: '/ring', icon: <RingVolumeIcon fontSize="small" /> },
-  { label: 'Diamond', path: '/diamond', icon: <DiamondIcon fontSize="small" /> },
-  { label: 'Earrings', path: '/earrings', icon: <EmojiEmotionsIcon fontSize="small" /> },
-  { label: 'Cosmetics', path: '/cosmetics', icon: <BrushIcon fontSize="small" /> },
-  { label: 'About Us', path: '/about', icon: <InfoIcon fontSize="small" /> },
-];
+// const navLinks = [
+//   { label: 'Ring', path: '/ring', icon: <RingVolumeIcon fontSize="small" /> },
+//   { label: 'Diamond', path: '/diamond', icon: <DiamondIcon fontSize="small" /> },
+//   { label: 'Earrings', path: '/earrings', icon: <EmojiEmotionsIcon fontSize="small" /> },
+//   { label: 'Cosmetics', path: '/cosmetics', icon: <BrushIcon fontSize="small" /> },
+//   { label: 'About Us', path: '/about', icon: <InfoIcon fontSize="small" /> },
+// ];
 
 const Header = () => {
   return (
@@ -41,7 +41,7 @@ const Header = () => {
           <Typography variant="h6">AIRA CREATIONS</Typography>
         </Box>
 
-        {/* Navigation Links */}
+        {/* Navigation Links
         <Box sx={{ display: 'flex', gap: 4, justifyContent: 'center', flexGrow: 1 }}>
           {navLinks.map(({ label, path, icon }) => (
             <Link
@@ -66,9 +66,9 @@ const Header = () => {
               </Typography>
             </Link>
           ))}
-        </Box>
+        </Box> */}
 
-        {/* Contact Info */}
+        {/* Contact Info
         <Box sx={{ display: 'flex', gap: 4, alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
             <PhoneIcon fontSize="small" />
@@ -78,7 +78,7 @@ const Header = () => {
             <EmailIcon fontSize="small" />
             <Typography variant="body2">piyushsoni261199@gmail.com</Typography>
           </Box>
-        </Box>
+        </Box> */}
       </Toolbar>
     </AppBar>
   );
