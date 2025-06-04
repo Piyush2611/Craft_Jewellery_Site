@@ -7,11 +7,11 @@ import logo from '../assets/logo.png';
 
 const navLinks = [
   // { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' }
-  // { label: 'Watch', path: '/watch' },
-  // { label: 'Ring', path: '/ring' },
-  // { label: 'Pages', path: '/pages' },
-  // { label: 'Contact', path: '/contact' },
+  { label: 'About', path: '/about' },
+  { label: 'Ring', path: '/ring' },
+  { label: 'Daimond', path: '/daimond' },
+  { label: 'Earings', path: '/earings' },
+  { label: 'Cosmatics', path: '/cosmatics' },
 ];
 
 const Header = () => {
