@@ -47,7 +47,7 @@ const HeroSection = () => {
                             fontFamily: "'Playfair Display', serif",
                         }}
                     >
-                        Welcome to <Box component="span" sx={{ color: 'red' }}>LUXRIO</Box>
+                        <Box component="span" sx={{ color: 'red' }}>AIRA CREATIONS</Box>
                     </Typography>
 
 

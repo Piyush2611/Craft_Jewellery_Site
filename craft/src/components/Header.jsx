@@ -21,7 +21,7 @@ const Header = () => {
         {/* Logo and Brand */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <img src={logo} alt="Luxrio Logo" style={{ height: '30px', marginTop: '5px' }} />
-          <Typography variant="h6">LUXRIO</Typography>
+          <Typography variant="h6">AIRA CREATIONS</Typography>
         </Box>
 
         {/* Navigation Links */}
