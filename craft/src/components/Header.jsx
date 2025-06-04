@@ -1,8 +1,18 @@
 import { AppBar, Toolbar, Typography, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import logo from '../assets/logo.png';
+
+const navLinks = [
+  { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
+  { label: 'Watch', path: '/watch' },
+  { label: 'Ring', path: '/ring' },
+  { label: 'Pages', path: '/pages' },
+  { label: 'Contact', path: '/contact' },
+];
 
 const Header = () => {
   return (
@@ -14,7 +24,7 @@ const Header = () => {
         top: 0,
         zIndex: (theme) => theme.zIndex.drawer + 1,
         borderBottom: '1px solid white',
-        backgroundColor: 'black', // same as page background
+        backgroundColor: 'black',
       }}
     >
       <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
@@ -24,16 +34,19 @@ const Header = () => {
           <Typography variant="h6">AIRA CREATIONS</Typography>
         </Box>
 
-        {/* Navigation Links */}
+        {/* Navigation Links with Routing */}
         <Box sx={{ display: 'flex', gap: 4, justifyContent: 'center', flexGrow: 1 }}>
-          {['Home', 'About', 'Watch', 'Ring', 'Pages', 'Contact'].map((item) => (
-            <Box
-              key={item}
-              sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+          {navLinks.map(({ label, path }) => (
+            <Link
+              key={label}
+              to={path}
+              style={{ textDecoration: 'none', color: 'inherit' }}
             >
-              <Typography variant="body1">{item}</Typography>
-              <ArrowDropDownIcon fontSize="small" />
-            </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+                <Typography variant="body1">{label}</Typography>
+                <ArrowDropDownIcon fontSize="small" />
+              </Box>
+            </Link>
           ))}
         </Box>
 
@@ -54,3 +67,4 @@ const Header = () => {
 };
 
 export default Header;
+

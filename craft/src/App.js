@@ -1,13 +1,12 @@
-import logo from './logo.svg';
+
 import './App.css';
-import JewelryHomePage from './pages/home';
+import AppRoute from './routes/routes';
+
 
 
 function App() {
   return (
-    <div className="App">
-      <JewelryHomePage/>
-    </div>
+      <AppRoute/>
   );
 }
 
