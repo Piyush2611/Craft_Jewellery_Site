@@ -5,13 +5,20 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import logo from '../assets/logo.png';
 
+import React from 'react';
+import DiamondIcon from '@mui/icons-material/Diamond';
+import RingVolumeIcon from '@mui/icons-material/RingVolume';
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import BrushIcon from '@mui/icons-material/Brush';
+import InfoIcon from '@mui/icons-material/Info';
+
+
 const navLinks = [
-  // { label: 'Home', path: '/' },
-  { label: 'Ring', path: '/ring' },
-  { label: 'Daimond', path: '/daimond' },
-  { label: 'Earings', path: '/earings' },
-  { label: 'Cosmatics', path: '/cosmatics' },
-  { label: 'About Us', path: '/about' },
+  { label: 'Ring', path: '/ring', icon: <RingVolumeIcon fontSize="small" /> },
+  { label: 'Diamond', path: '/diamond', icon: <DiamondIcon fontSize="small" /> },
+  { label: 'Earrings', path: '/earrings', icon: <EmojiEmotionsIcon fontSize="small" /> },
+  { label: 'Cosmetics', path: '/cosmetics', icon: <BrushIcon fontSize="small" /> },
+  { label: 'About Us', path: '/about', icon: <InfoIcon fontSize="small" /> },
 ];
 
 const Header = () => {
@@ -30,13 +37,13 @@ const Header = () => {
       <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
         {/* Logo and Brand */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <img src={logo} alt="Luxrio Logo" style={{ height: '30px', marginTop: '5px' }} />
+          <img src={logo} alt="AIRA Logo" style={{ height: '30px', marginTop: '5px' }} />
           <Typography variant="h6">AIRA CREATIONS</Typography>
         </Box>
 
-        {/* Navigation Links with Routing */}
+        {/* Navigation Links */}
         <Box sx={{ display: 'flex', gap: 4, justifyContent: 'center', flexGrow: 1 }}>
-          {navLinks.map(({ label, path }) => (
+          {navLinks.map(({ label, path, icon }) => (
             <Link
               key={label}
               to={path}
@@ -45,12 +52,16 @@ const Header = () => {
               <Typography
                 variant="body1"
                 sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1,
                   cursor: 'pointer',
                   '&:hover': {
                     textDecoration: 'underline',
                   },
                 }}
               >
+                {icon}
                 {label}
               </Typography>
             </Link>
@@ -74,4 +85,5 @@ const Header = () => {
 };
 
 export default Header;
+
 
