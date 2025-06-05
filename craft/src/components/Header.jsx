@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Daimond', path: '/daimond' },
   { label: 'Earings', path: '/earings' },
   { label: 'Cosmatics', path: '/cosmatics' },
-  { label: 'About', path: '/about' },
+  { label: 'About Us', path: '/about' },
 ];
 
 const Header = () => {

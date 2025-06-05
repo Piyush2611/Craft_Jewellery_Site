@@ -1,6 +1,7 @@
 // pages/JewelryHomePage.jsx
 import { Box } from '@mui/material';
 import Header from '../components/Header';
+import TanishqPopup from '../components/PopUp';
 import HeroSection from '../components/HeroSection';
 import HighClassJewelry from '../components/HighClassJewelry';
 import ShopByCategory from '../components/ShopByCategory';
@@ -12,6 +13,7 @@ const JewelryHomePage = () => {
       <HeroSection />
       <HighClassJewelry />
       <ShopByCategory />
+      <TanishqPopup/>
     </Box>
   );
 };
