@@ -139,11 +139,11 @@ const Footer = () => {
         </Box>
       </Box>
 
-      <Box mt={10}textAlign="center">
-        <Typography variant="body2" color="black">
-          © {new Date().getFullYear()} Your Company. All rights reserved.
-        </Typography>
-      </Box>
+     <Box pt={5} textAlign="center">
+  <Typography variant="body2" color="black">
+    © {new Date().getFullYear()} Your Company. All rights reserved.
+  </Typography>
+</Box>
     </Box>
   );
 
