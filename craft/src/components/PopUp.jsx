@@ -74,7 +74,7 @@ const TanishqPopup = () => {
         {/* Right Side */}
         <Box sx={{ width: "50%", p: 3 }}>
           <Typography variant="h6" fontWeight={600}>
-            Welcome to AIRA CREATION
+            Welcome to AIRA CREATIONS
           </Typography>
           <TextField
             fullWidth
