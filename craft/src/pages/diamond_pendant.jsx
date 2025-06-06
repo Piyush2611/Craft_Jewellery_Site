@@ -35,6 +35,7 @@ const DiamondPendantPage = () => {
 
         {/* Right Side: Content */}
         <Grid item xs={12} md={6}>
+          <Box sx={{ pl: { md: 4 }, pr: { md: 2 }, width:'800px' }} border={'1px solid red'}>
           <Typography
             variant="h3"
             sx={{
@@ -50,7 +51,14 @@ const DiamondPendantPage = () => {
             Discover our elegant collection of diamond pendants, crafted with precision
             and designed to add a touch of brilliance to any outfit. Choose from timeless
             classic designs or modern statement pieces to express your unique style.
+               Discover our elegant collection of diamond pendants, crafted with precision
+            and designed to add a touch of brilliance to any outfit. Choose from timeless
+            classic designs or modern statement pieces to express your unique style.
+               Discover our elegant collection of diamond pendants, crafted with precision
+            and designed to add a touch of brilliance to any outfit. Choose from timeless
+            classic designs or modern statement pieces to express your unique style.
           </Typography>
+          </Box>
         </Grid>
       </Grid>
     </Box>
