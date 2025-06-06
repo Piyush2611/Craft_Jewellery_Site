@@ -10,12 +10,12 @@ import ShopByCategory from '../components/ShopByCategory';
 const JewelryHomePage = () => {
   return (
     <Box sx={{ backgroundColor: 'black', color: 'white', minHeight: '100vh' }}>
-      <Header />
+      {/* <Header /> */}
       <HeroSection />
       <HighClassJewelry />
       <ShopByCategory />
       <TanishqPopup/>
-      <Footer/>
+      {/* <Footer/> */}
     </Box>
   );
 };

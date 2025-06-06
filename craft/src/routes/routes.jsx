@@ -6,19 +6,28 @@ import Daimond from '../pages/daimonds';
 import Earings from '../pages/earings';
 import Cosmatics from '../pages/cosmatics';
 import CategoryPage from '../components/item';
+import Header from '../components/Header';
+import Footer from '../components/footer';
+import { Box } from '@mui/material';
 
 function AppRoute() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<JewelryHomePage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/ring" element={<Ring />} />
-        <Route path="/daimond" element={<Daimond />} />
-        <Route path="/earings" element={<Earings />} />
-        <Route path="/cosmatics" element={<Cosmatics />} />
-        <Route path="/category/:categoryName" element={<CategoryPage />} />
-      </Routes>
+      {/* Global layout with Header */}
+      <Box>
+        <Header />
+        <Routes>
+          <Route path="/" element={<JewelryHomePage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/ring" element={<Ring />} />
+          <Route path="/daimond" element={<Daimond />} />
+          <Route path="/earings" element={<Earings />} />
+          <Route path="/cosmatics" element={<Cosmatics />} />
+          <Route path="/category/:categoryName" element={<CategoryPage />} />
+        </Routes>
+        <Footer />
+
+      </Box>
     </Router>
   );
 }
