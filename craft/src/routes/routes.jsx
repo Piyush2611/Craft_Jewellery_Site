@@ -9,6 +9,8 @@ import CategoryPage from '../components/item';
 import Header from '../components/Header';
 import Footer from '../components/footer';
 import { Box } from '@mui/material';
+import Terms from '../pages/terms';
+import PrivacyPolicy from '../pages/privacy&policy';
 
 function AppRoute() {
   return (
@@ -24,6 +26,8 @@ function AppRoute() {
           <Route path="/earings" element={<Earings />} />
           <Route path="/cosmatics" element={<Cosmatics />} />
           <Route path="/category/:categoryName" element={<CategoryPage />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
         </Routes>
         <Footer />
 
