@@ -6,15 +6,17 @@ import womenearing from '../assets/womenearing.jpg';
 import weddingring from '../assets/weddingring.jpg';
 import diamondpendant from '../assets/daimondpendant.jpg';
 import womanearring from '../assets/womenEaring1.jpg';
-import cosmatics from '../assets/cosmatics.jpg'
+import cosmatics from '../assets/cosmatics.jpg';
+import { Link as RouterLink } from 'react-router-dom';
 
 const ShopByCategory = () => {
   const scrollRef = useRef();
+
   const categories = [
-    { title: 'Wedding Ring', image: weddingring },
-    { title: 'Diamond Pendant', image: diamondpendant },
-    { title: 'Woman Earring', image: womanearring },
-    { title: 'Cosmetics', image: cosmatics },
+    { title: 'Wedding Ring', image: weddingring, link: 'wedding_ring' },
+    { title: 'Diamond Pendant', image: diamondpendant, link: 'diamond_pendant' },
+    { title: 'Woman Earring', image: womanearring, link: 'woman_earring' },
+    { title: 'Cosmetics', image: cosmatics, link: 'cosmetics' },
   ];
 
   const handleScrollRight = () => {
@@ -28,18 +30,15 @@ const ShopByCategory = () => {
       sx={{
         backgroundColor: '#f8f1e9',
         color: 'black',
-        py:4,
+        py: 4,
         border: '2px solid black',
         borderRadius: 3,
       }}
     >
-      <Box sx={{m:5, ml:25}}>
-
-
-        {/* Image + Cards Layout */}
+      <Box sx={{ m: 5, ml: 25 }}>
         <Grid container spacing={6}>
-          {/* Left: Image */}
-          
+          {/* Left Image */}
+          <Grid item xs={12} md={6}>
             <Box
               sx={{
                 p: 2,
@@ -54,41 +53,42 @@ const ShopByCategory = () => {
                 style={{ width: '100%', borderRadius: 8 }}
               />
             </Box>
-          
+          </Grid>
 
-          {/* Right: Scrollable cards */}
-          <Grid item xs={12} md={6} >
+          {/* Right Scrollable Cards */}
+          <Grid item xs={12} md={6}>
             <Typography
-          variant="subtitle2"
-          sx={{
-            textAlign: 'left',
-            mb: 1,
-            color: 'red',
-            fontWeight: '600',
-            letterSpacing: 2,
-            textTransform: 'uppercase',
-            fontSize: '0.85rem',
-            ml:5
-          }}
-        >
-          PRECIOUS COLLECTION
-        </Typography>
+              variant="subtitle2"
+              sx={{
+                textAlign: 'left',
+                mb: 1,
+                color: 'red',
+                fontWeight: '600',
+                letterSpacing: 2,
+                textTransform: 'uppercase',
+                fontSize: '0.85rem',
+                ml: 5,
+              }}
+            >
+              PRECIOUS COLLECTION
+            </Typography>
 
-        <Typography
-          variant="h3"
-          fontWeight="bold"
-          sx={{
-            textAlign: 'left',
-            mb: 4,
-            fontFamily: "'Playfair Display', serif",
-            color: '#222',
-            letterSpacing: 1,
-            lineHeight: 1.2,
-            ml:5
-          }}
-        >
-          SHOP BY CATEGORY
-        </Typography>
+            <Typography
+              variant="h3"
+              fontWeight="bold"
+              sx={{
+                textAlign: 'left',
+                mb: 4,
+                fontFamily: "'Playfair Display', serif",
+                color: '#222',
+                letterSpacing: 1,
+                lineHeight: 1.2,
+                ml: 5,
+              }}
+            >
+              SHOP BY CATEGORY
+            </Typography>
+
             <Box sx={{ position: 'relative' }}>
               <Box
                 ref={scrollRef}
@@ -105,7 +105,10 @@ const ShopByCategory = () => {
                 {categories.map((category, i) => (
                   <Box
                     key={i}
+                    component={RouterLink}
+                    to={`/category/${category.link}`}
                     sx={{
+                      textDecoration: 'none',
                       flex: '0 0 auto',
                       scrollSnapAlign: 'start',
                       width: '100%',
@@ -123,7 +126,7 @@ const ShopByCategory = () => {
                           transform: 'translateY(-8px)',
                           boxShadow: '0 15px 30px rgba(0,0,0,0.2)',
                         },
-                        ml:4
+                        ml: 4,
                       }}
                       elevation={0}
                     >
@@ -159,7 +162,6 @@ const ShopByCategory = () => {
                 ))}
               </Box>
 
-              {/* Right Scroll Button */}
               {categories.length > 3 && (
                 <IconButton
                   onClick={handleScrollRight}
@@ -186,6 +188,7 @@ const ShopByCategory = () => {
     </Box>
   );
 };
+
 
 export default ShopByCategory;
 

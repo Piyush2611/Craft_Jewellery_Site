@@ -5,6 +5,7 @@ import Ring from '../pages/ring';
 import Daimond from '../pages/daimonds';
 import Earings from '../pages/earings';
 import Cosmatics from '../pages/cosmatics';
+import CategoryPage from '../components/item';
 
 function AppRoute() {
   return (
@@ -16,6 +17,7 @@ function AppRoute() {
         <Route path="/daimond" element={<Daimond />} />
         <Route path="/earings" element={<Earings />} />
         <Route path="/cosmatics" element={<Cosmatics />} />
+        <Route path="/category/:categoryName" element={<CategoryPage />} />
       </Routes>
     </Router>
   );
