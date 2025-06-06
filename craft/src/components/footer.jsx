@@ -5,9 +5,9 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const Footer = () => {
   const quickLinks = [
-    { label: 'Customer Reviews', path: '/reviews' },
+    // { label: 'Customer Reviews', path: '/reviews' },
     { label: 'Our Blogs', path: '/blogs' },
-    { label: 'Store Locator', path: '/store-locator' },
+    // { label: 'Store Locator', path: '/store-locator' },
     { label: 'About Us', path: '/about' },
     { label: 'Join Us', path: '/join' },
   ];
@@ -15,8 +15,8 @@ const Footer = () => {
   const infoLinks = [
     { label: 'Shipping & Returns', path: '/shipping-returns' },
     { label: 'Privacy Policy', path: '/privacy-policy' },
-    { label: 'International Shipping', path: '/international-shipping' },
-    { label: 'FAQs & Support', path: '/faqs' },
+    // { label: 'International Shipping', path: '/international-shipping' },
+    // { label: 'FAQs & Support', path: '/faqs' },
     { label: 'Terms of Service', path: '/terms' },
   ];
 
@@ -28,9 +28,10 @@ const Footer = () => {
           "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 L100 100 M100 0 L0 100' stroke='pink' stroke-width='0.2'/%3E%3C/svg%3E\")",
         backgroundRepeat: 'repeat',
         borderRadius: 3,
+        // border:'5px solid red',
         px: { xs: 4, md: 20 },
         pt: 8,
-        pb: 6,
+        // pb: 6,
         color: 'black',
       }}
     >
@@ -96,22 +97,23 @@ const Footer = () => {
       <Box display="flex" justifyContent="space-between" alignItems="center" flexWrap="wrap">
         {/* Newsletter */}
         <Box width={{ xs: '100%', md: '65%' }} mb={{ xs: 2, md: 0 }}>
-          <Typography variant="h3" color="black" mb={1} mt={6}>
+          <Typography variant="h3" color="black" mb={1} mt={6} >
             Subscribe to our Newsletter
           </Typography>
-          <Box display="flex" gap={1} mt={4}>
+          <Box display="flex" gap={1} mt={4} width={'600px'}>
             <TextField
               variant="outlined"
               placeholder="Enter your email"
-              size="small"
+              size="medium"
               sx={{
                 backgroundColor: 'white',
                 borderRadius: 1,
                 flex: 1,
+                // height:'50px',
                 input: { color: 'black' },
               }}
             />
-            <IconButton sx={{ bgcolor: 'black', color: 'white' }}>
+            <IconButton sx={{ bgcolor: 'black', color: 'white',width:'50px',height:'50px' ,ml:2,mt:0.5}}>
               <ArrowForward />
             </IconButton>
           </Box>
