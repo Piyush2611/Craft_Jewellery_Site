@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import {
     Dialog,
-    DialogTitle,
     DialogContent,
     IconButton,
     TextField,
     Button,
     Box,
     Grid,
-    Typography
+    Typography,
+    MenuItem,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import contact_us from '../assets/contact_us.jpg';
 
-const SendInquiryModal = ({ open, onClose, selectedRing = "Wedding Ring" }) => {
+const SendInquiryModal = ({ open, onClose }) => {
     const [formData, setFormData] = useState({
-        name: '',
-        contact: '',
+        firstName: '',
+        lastName: '',
         email: '',
-        address: '',
+        inquiryType: '',
+        message: '',
     });
 
     const handleChange = (e) => {
@@ -31,103 +33,153 @@ const SendInquiryModal = ({ open, onClose, selectedRing = "Wedding Ring" }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Submitted Data:', formData);
-        onClose(); // optionally close the modal
+        onClose();
     };
 
     return (
-        <Dialog open={open} onClose={onClose} maxWidth={false}
+        <Dialog
+            open={open}
+            onClose={onClose}
+            maxWidth="md"
+            fullWidth
             PaperProps={{
                 sx: {
-                    width: '700px',
-                    maxWidth: '90%',
-                    borderRadius: 2,
+                    borderRadius: 0,
+                    overflow: 'hidden',
                 },
-            }} >
-            <DialogTitle
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    borderBottom: '1px solid #ccc',
-                    fontWeight: 'bold',
-                    color: '#1976d2',
-                }}
-            >
-                Inquiry for {selectedRing}
-                <IconButton onClick={onClose}>
-                    <CloseIcon />
-                </IconButton>
-            </DialogTitle>
+            }}
+        >
+            <Grid container sx={{ height: '100%' }}>
+                {/* Left image */}
+                <Grid item xs={12} md={6} sx={{ display: { xs: 'none', md: 'block' }, height: '100%' }}>
+                    <Box
+                        component="img"
+                        src={contact_us}
+                        alt="Contact"
+                        sx={{
+                            maxWidth: '300px',
+                            height: '500px',
+                            objectFit: 'cover',
+                            display: 'block',
+                            p:4,
+                            mt:1
+                        }}
+                    />
+                </Grid>
 
-            <DialogContent>
-                <Box
-                    component="form"
-                    onSubmit={handleSubmit}
-                    sx={{
-                        mt: 2,
-                        px: { xs: 1, sm: 0 },
-                        py: 2,
-                        width: '100%',
-                        
-                    }}
-                >
-                    <Grid container spacing={2} justifyContent={'center'}>
-                        <Grid item xs={12} md={12}>
-                            <TextField
-                                label="Name"
-                                name="name"
-                                fullWidth
-                                required
-                                value={formData.name}
-                                onChange={handleChange}
-                                sx={{minWidth:'100px'}}
-                            />
-                        </Grid>
+                {/* Right form */}
+                <Grid item xs={12} md={6}>
+                    <DialogContent sx={{ p: 4 }}>
+                        <IconButton
+                            onClick={onClose}
+                            sx={{ position: 'absolute', top: 10, right: 10 }}
+                        >
+                            <CloseIcon />
+                        </IconButton>
 
-                        <Grid item xs={12} md={6}>
-                            <TextField
-                                label="Contact Number"
-                                name="contact"
-                                fullWidth
-                                required
-                                value={formData.contact}
-                                onChange={handleChange}
-                            />
-                        </Grid>
+                        <Box
+                            component="form"
+                            onSubmit={handleSubmit}
+                            display="flex"
+                            flexDirection="column"
+                            justifyContent="center"
+                        >
+                            <Typography variant="h5" fontWeight="bold" align="center" gutterBottom>
+                                CONTACT US
+                            </Typography>
+                            <Typography variant="caption" align="center" color="textSecondary" display="block">
+                                WE USUALLY GET BACK WITHIN 2 BUSINESS DAYS!
+                            </Typography>
 
-                        <Grid item xs={12} md={6}>
-                            <TextField
-                                label="Email"
-                                name="email"
-                                type="email"
-                                fullWidth
-                                required
-                                value={formData.email}
-                                onChange={handleChange}
-                            />
-                        </Grid>
+                            {/* Name */}
+                            <Box sx={{ mt: 3 }}>
+                                <Typography fontSize={14} fontWeight="bold" sx={{ mb: 1 }}>
+                                    NAME
+                                </Typography>
+                                <Grid container spacing={2}>
+                                    <Grid item xs={12} sm={6}>
+                                        <TextField
+                                            placeholder="First Name"
+                                            name="firstName"
+                                            fullWidth
+                                            required
+                                            value={formData.firstName}
+                                            onChange={handleChange}
+                                            size="small"
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} sm={6}>
+                                        <TextField
+                                            placeholder="Last Name"
+                                            name="lastName"
+                                            fullWidth
+                                            required
+                                            value={formData.lastName}
+                                            onChange={handleChange}
+                                            size="small"
+                                        />
+                                    </Grid>
+                                </Grid>
+                            </Box>
 
-                        <Grid item xs={12} md={6}>
-                            <TextField
-                                label="Address"
-                                name="address"
-                                fullWidth
-                                required
-                                value={formData.address}
-                                onChange={handleChange}
-                            />
-                        </Grid>
-                    </Grid>
+                            {/* Email */}
+                            <Box sx={{ mt: 2 }}>
+                                <Typography fontSize={14} fontWeight="bold" sx={{ mb: 1 }}>
+                                    EMAIL
+                                </Typography>
+                                <TextField
+                                    placeholder="Enter your email"
+                                    name="email"
+                                    type="email"
+                                    fullWidth
+                                    required
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    size="small"
+                                />
+                            </Box>
 
+                            {/* Inquiry Type */}
+                            
 
+                            {/* Message */}
+                            <Box sx={{ mt: 2 }}>
+                                <Typography fontSize={14} fontWeight="bold" sx={{ mb: 1 }}>
+                                    MESSAGE
+                                </Typography>
+                                <TextField
+                                    name="message"
+                                    placeholder="Type your message here..."
+                                    multiline
+                                    rows={4}
+                                    fullWidth
+                                    required
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                />
+                            </Box>
 
-                    <Box sx={{ mt: 4, textAlign: 'center' }}>
-                        <Button type="submit" variant="contained" color="primary" sx={{ px: 2 }}>
-                            Submit
-                        </Button>
-                    </Box>
-                </Box>
-            </DialogContent>
+                            {/* Submit */}
+                            <Box sx={{ mt: 4 }}>
+                                <Button
+                                    type="submit"
+                                    variant="contained"
+                                    fullWidth
+                                    sx={{
+                                        backgroundColor: '#5C2C0C',
+                                        '&:hover': { backgroundColor: '#4A2309' },
+                                        fontWeight: 'bold',
+                                        color: '#fff',
+                                        py: 1.5,
+                                    }}
+                                >
+                                    SUBMIT
+                                </Button>
+                            </Box>
+                        </Box>
+                    </DialogContent>
+                </Grid>
+            </Grid>
         </Dialog>
     );
 };
