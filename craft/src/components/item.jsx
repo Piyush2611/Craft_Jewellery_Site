@@ -4,11 +4,14 @@ import weddingring from '../assets/weddingring.jpg';
 import diamondpendant from '../assets/daimondpendant.jpg';
 import WeddingRingPage from '../pages/wedding_ring';
 import DiamondPendantPage from '../pages/diamond_pendant';
+import WeddingearingsPage from '../pages/woman_earring';
+import Cosmatics from '../pages/cosmatics';
 
 const categoryData = {
     wedding_ring: WeddingRingPage,
     diamond_pendant: DiamondPendantPage,
-
+    woman_earring:WeddingearingsPage,
+    cosmetics:Cosmatics
 };
 
 const CategoryPage = () => {
