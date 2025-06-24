@@ -6,7 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 const Footer = () => {
   const quickLinks = [
     // { label: 'Customer Reviews', path: '/reviews' },
-    { label: 'Our Blogs', path: '/blogs' },
+    { label: 'Our Blogs', path: '/blog' },
     // { label: 'Store Locator', path: '/store-locator' },
     { label: 'About Us', path: '/about' },
     { label: 'Join Us', path: '/join' },

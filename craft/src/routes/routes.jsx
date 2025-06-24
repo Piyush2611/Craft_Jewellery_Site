@@ -11,6 +11,7 @@ import Footer from '../components/footer';
 import { Box } from '@mui/material';
 import Terms from '../pages/terms';
 import PrivacyPolicy from '../pages/privacy&policy';
+import BlogPage from '../pages/blog';
 
 function AppRoute() {
   return (
@@ -28,6 +29,8 @@ function AppRoute() {
           <Route path="/category/:categoryName" element={<CategoryPage />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+          <Route path="/blog" element={< BlogPage/>} />
+
         </Routes>
         <Footer />
 
