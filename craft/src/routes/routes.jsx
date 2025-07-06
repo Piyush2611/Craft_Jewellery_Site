@@ -28,12 +28,10 @@ function AppRoute() {
           <Route path="/cosmatics" element={<Cosmatics />} />
           <Route path="/category/:categoryName" element={<CategoryPage />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
-          <Route path="/blog" element={< BlogPage/>} />
-
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/blog" element={<BlogPage />} />
         </Routes>
         <Footer />
-
       </Box>
     </Router>
   );

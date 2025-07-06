@@ -8,6 +8,7 @@ import {
   Link as MuiLink,
   Container,
 } from '@mui/material';
+import { Link, useLocation } from 'react-router-dom';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import logo from '../assets/logo.jpeg';
@@ -20,33 +21,39 @@ const rotatingMessages = [
   'Cash On Delivery (COD) Available ✨',
 ];
 
-const navLinksLeft = [
-  'New Arrivals ✨',
-  'Necklaces',
-  'Earrings',
-  'Rings',
-  'Bracelets',
-  'Combo',
+export const navLinksLeft = [
+  { label: 'New Arrivals ✨', path: '/' },
+  { label: 'Necklaces', path: '/category/necklaces' },
+  { label: 'Earrings', path: '/category/earrings' },   // <== updated path here
+  { label: 'Rings', path: '/category/rings' },
+  { label: 'Bracelets', path: '/category/bracelets' },
+  // { label: 'Combo', path: '/category/combo' },
 ];
 
-const navLinksRight = [
-  '90% SALE ✨',
-  'About Us',
-  'Affiliate Program',
-  'Contact Us',
-  'Request Returns',
-  'Track Order',
+export const navLinksRight = [
+  { label: 'About', path: '/about' },
+  { label: 'Blog', path: '/blog' },
+  { label: 'Terms', path: '/terms' },
+  { label: 'Privacy Policy', path: '/privacy-policy' },
 ];
+
 
 const Header = () => {
   const [currentMsgIndex, setCurrentMsgIndex] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentMsgIndex((prevIndex) => (prevIndex + 1) % rotatingMessages.length);
-    }, 4000); // rotates every 4 seconds
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
+
+  // Combine nav links into an array of objects with label and path
+  const navLinks = [
+    ...navLinksLeft,
+    ...navLinksRight,
+  ];
 
   return (
     <>
@@ -73,7 +80,7 @@ const Header = () => {
         sx={{
           backgroundColor: '#fff',
           borderBottom: '1px solid #eee',
-          height:140
+          height: 140,
         }}
       >
         <Container maxWidth="xl" sx={{ pt: 2 }}>
@@ -85,9 +92,8 @@ const Header = () => {
               alt="Logo"
               sx={{ height: 50, objectFit: 'contain' }}
             />
-            
           </Box>
-          
+
           {/* Unified Navigation Row */}
           <Toolbar
             disableGutters
@@ -99,14 +105,21 @@ const Header = () => {
               pb: 2,
             }}
           >
-            {[...navLinksLeft, ...navLinksRight].map((text, idx) => (
+            {navLinks.map(({ label, path }, idx) => (
               <MuiLink
                 key={idx}
-                href="#"
+                component={Link}
+                to={path}
                 underline="none"
-                sx={{ color: '#111', fontSize: '14px', fontWeight: 500,mb:2 }}
+                sx={{
+                  color: location.pathname === path ? '#c79439' : '#111',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  mb: 2,
+                  '&:hover': { color: '#c79439' },
+                }}
               >
-                {text}
+                {label}
               </MuiLink>
             ))}
           </Toolbar>
@@ -117,3 +130,4 @@ const Header = () => {
 };
 
 export default Header;
+
