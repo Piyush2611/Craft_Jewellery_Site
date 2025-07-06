@@ -1,28 +1,34 @@
 import React, { useState } from 'react';
-import { Box, Grid, Typography, Button } from '@mui/material';
+import {
+  Box,
+  Grid,
+  Typography,
+  Link,
+  Button,
+} from '@mui/material';
 
 import cosmaticss from '../assets/cosmatics1.jpg';
 import cosmatics from '../assets/cosmatics2.jpg';
 import SendInquiryModal from '../components/enquiryform';
 
+const cosmeticItems = [
+  {
+    img: cosmaticss,
+    title: 'Luxury Lipstick Set',
+    price: 349,
+    original: 1999,
+  },
+  {
+    img: cosmatics,
+    title: 'Complete Skincare Kit',
+    price: 549,
+    original: 2999,
+  },
+];
+
 const Cosmetics = () => {
   const [open, setOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-
-  const description = `Enhance your natural beauty with our premium cosmetics range, crafted for all skin types.
-  Our collection includes everything from vibrant lipsticks to nourishing skincare essentials,
-  designed to make you feel confident and radiant every day.`;
-
-  const cosmeticsSections = [
-    {
-      image: cosmaticss,
-      title: 'Luxury Lipstick Set',
-    },
-    {
-      image: cosmatics,
-      title: 'Complete Skincare Kit',
-    },
-  ];
 
   const handleOpen = (title) => {
     setSelectedProduct(title);
@@ -35,76 +41,112 @@ const Cosmetics = () => {
   };
 
   return (
-    <Box
-      sx={{
-        backgroundColor: '#fffaf5',
-        px: { xs: 4, md: 20 },
-        py: 8,
-        minHeight: '80vh',
-        color: 'black',
-      }}
-    >
-      {cosmeticsSections.map((section, index) => (
-        <Box
-          key={index}
-          sx={{
-            mt: index !== 0 ? 7 : 0,
-            pb: 5,
-            borderBottom: index !== cosmeticsSections.length - 1 ? '1px solid #ddd' : 'none',
-            position: 'relative',
-          }}
-        >
-          <Grid container spacing={6} alignItems="center">
-            {/* Image */}
-            <Grid item xs={12} md={6}>
+    <Box sx={{ px: 6, py: 6, bgcolor: '#ffffff' }}>
+      <Grid container spacing={4} justifyContent="center">
+        {cosmeticItems.map((item, index) => (
+          <Grid item xs={12} sm={6} md={3} key={index}>
+            <Box
+              sx={{
+                border: '1px solid #eee',
+                borderRadius: 2,
+                overflow: 'hidden',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              {/* Image */}
               <Box
                 sx={{
-                  p: 2,
-                  borderRadius: 2,
-                  backgroundColor: '#f8f1e9',
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
+                  width: '100%',
+                  height: 260,
+                  backgroundColor: '#f9f9f9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  overflow: 'hidden',
                 }}
               >
-                <img
-                  src={section.image}
-                  alt={section.title}
-                  style={{ maxWidth: '100%', borderRadius: '8px' }}
+                <Box
+                  component="img"
+                  src={item.img}
+                  alt={item.title}
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
                 />
               </Box>
-            </Grid>
 
-            {/* Text */}
-            <Grid item xs={12} md={6}>
-              <Box sx={{ pl: { md: 4 }, pr: { md: 2 }, width: '100%', maxWidth: '700px' }}>
-                <Typography
-                  variant="h3"
+              {/* Content */}
+              <Box sx={{ p: 2, flexGrow: 1 }}>
+                <Link
+                  underline="none"
                   sx={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontWeight: 'bold',
-                    mb: 3,
-                    color: '#222',
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    display: 'block',
+                    color: '#000',
+                    mb: 1,
+                    '&:hover': { color: '#c79439' },
+                  }}
+                  href="#"
+                >
+                  {item.title}
+                </Link>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '14px',
+                    fontWeight: 500,
+                    color: '#000',
+                    mb: 2,
                   }}
                 >
-                  {section.title}
-                </Typography>
-                <Typography variant="body1" sx={{ lineHeight: 1.7, color: '#444', mb: 6 }}>
-                  {description}
+                  ₹{item.price}
+                  <span style={{ textDecoration: 'line-through', color: '#444', marginLeft: 4 }}>
+                    ₹{item.original}
+                  </span>
+                  <span
+                    style={{
+                      fontWeight: 700,
+                      color: '#000',
+                      background: '#f3f3f3',
+                      fontSize: '10px',
+                      padding: '2px 4px',
+                      marginLeft: 4,
+                      display: 'inline-block',
+                      borderRadius: '2px',
+                    }}
+                  >
+                    SAVE 85%
+                  </span>
                 </Typography>
 
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                  <Button variant="contained" color="primary" onClick={() => handleOpen(section.title)}>
+                {/* Inquiry Button */}
+                <Box sx={{ mt: 'auto', textAlign: 'right' }}>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    size="small"
+                    onClick={() => handleOpen(item.title)}
+                  >
                     Send Inquiry
                   </Button>
                 </Box>
               </Box>
-            </Grid>
+            </Box>
           </Grid>
-        </Box>
-      ))}
+        ))}
+      </Grid>
 
       {/* Inquiry Form Modal */}
-      <SendInquiryModal open={open} onClose={handleClose} selectedRing={selectedProduct} />
+      <SendInquiryModal
+        open={open}
+        onClose={handleClose}
+        selectedRing={selectedProduct}
+      />
     </Box>
   );
 };

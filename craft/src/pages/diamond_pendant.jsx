@@ -1,31 +1,37 @@
 import React, { useState } from 'react';
-import { Box, Grid, Typography, Button } from '@mui/material';
-import diamondpendant from '../assets/daimondpendant.jpg';
+import {
+  Box,
+  Grid,
+  Typography,
+  Link,
+  Button,
+} from '@mui/material';
+
 import necklace from '../assets/necklace_1.jpg';
 import pendent from '../assets/daimondpendantnecklace.jpg';
 import SendInquiryModal from '../components/enquiryform';
+
+const pendants = [
+  {
+    img: necklace,
+    title: 'AIRA Classic Diamond Necklace',
+    price: 499,
+    original: 3499,
+  },
+  {
+    img: pendent,
+    title: 'AIRA Pendant Diamond Chain',
+    price: 449,
+    original: 3299,
+  },
+];
 
 const DiamondPendantPage = () => {
   const [open, setOpen] = useState(false);
   const [selectedPendant, setSelectedPendant] = useState(null);
 
-  const description = `Discover our elegant collection of diamond pendants, crafted with precision
-    and designed to add a touch of brilliance to any outfit. Choose from timeless
-    classic designs or modern statement pieces to express your unique style.`;
-
-  const pendantSections = [
-    {
-      image: necklace,
-      title: 'Diamond Necklace',
-    },
-    {
-      image: pendent,
-      title: 'Diamond Pendant Necklace',
-    },
-  ];
-
-  const handleOpen = (pendantTitle) => {
-    setSelectedPendant(pendantTitle);
+  const handleOpen = (title) => {
+    setSelectedPendant(title);
     setOpen(true);
   };
 
@@ -35,90 +41,107 @@ const DiamondPendantPage = () => {
   };
 
   return (
-    <Box
-      sx={{
-        backgroundColor: '#fffaf5',
-        px: { xs: 4, md: 20 },
-        py: 8,
-        minHeight: '80vh',
-        color: 'black',
-      }}
-    >
-      {pendantSections.map((section, index) => (
-        <Box
-          key={index}
-          sx={{
-            mt: index !== 0 ? 7 : 0,
-            pb: 5,
-            borderBottom: index !== pendantSections.length - 1 ? '1px solid #ddd' : 'none',
-            position: 'relative',
-          }}
-        >
-          <Grid container justifyContent="space-between" alignItems="center">
-            {/* Image */}
-            <Grid item xs={12} md={6}>
+    <Box sx={{ px: 6, py: 6, bgcolor: '#ffffff' }}>
+      <Grid container spacing={4} justifyContent="center">
+        {pendants.map((pendant, index) => (
+          <Grid item xs={12} sm={6} md={3} key={index}>
+            <Box
+              sx={{
+                border: '1px solid #eee',
+                borderRadius: 2,
+                overflow: 'hidden',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              {/* Image Container */}
               <Box
                 sx={{
-                  p: 2,
-                  borderRadius: 2,
-                  backgroundColor: '#f8f1e9',
-                  textAlign: 'center',
-                  height: '100%',
+                  width: '100%',
+                  height: 260,
+                  backgroundColor: '#f9f9f9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  overflow: 'hidden',
                 }}
               >
-                <img
-                  src={section.image}
-                  alt={section.title}
-                  style={{
-                    maxWidth: '100%',
-                    borderRadius: '8px',
-                    height: 'auto',
+                <Box
+                  component="img"
+                  src={pendant.img}
+                  alt={pendant.title}
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
                   }}
                 />
               </Box>
-            </Grid>
 
-            {/* Text */}
-            <Grid item xs={12} md={6}>
-              <Box
-                sx={{
-                  pl: { md: 4 },
-                  pr: { md: 2 },
-                  width: '800px',
-                  position: 'relative',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  minHeight: '100%',
-                }}
-              >
-                <Typography
-                  variant="h3"
+              {/* Content */}
+              <Box sx={{ p: 2, flexGrow: 1 }}>
+                <Link
+                  underline="none"
                   sx={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontWeight: 'bold',
-                    mb: 3,
-                    color: '#222',
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    display: 'block',
+                    color: '#000',
+                    mb: 1,
+                    '&:hover': { color: '#c79439' },
+                  }}
+                  href="#"
+                >
+                  {pendant.title}
+                </Link>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '14px',
+                    fontWeight: 500,
+                    color: '#000',
+                    mb: 2,
                   }}
                 >
-                  {section.title}
-                </Typography>
-                <Typography variant="body1" sx={{ lineHeight: 1.7, color: '#444', mb: 6 }}>
-                  {description}
+                  ₹{pendant.price}
+                  <span style={{ textDecoration: 'line-through', color: '#444', marginLeft: 4 }}>
+                    ₹{pendant.original}
+                  </span>
+                  <span
+                    style={{
+                      fontWeight: 700,
+                      color: '#000',
+                      background: '#f3f3f3',
+                      fontSize: '10px',
+                      padding: '2px 4px',
+                      marginLeft: 4,
+                      display: 'inline-block',
+                      borderRadius: '2px',
+                    }}
+                  >
+                    SAVE 90%
+                  </span>
                 </Typography>
 
-                {/* Send Inquiry Button */}
-                <Box sx={{ mt: 'auto', display: 'flex', justifyContent: 'flex-end' }}>
-                  <Button variant="contained" color="primary" onClick={() => handleOpen(section.title)}>
+                {/* Inquiry Button */}
+                <Box sx={{ mt: 'auto', textAlign: 'right' }}>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    size="small"
+                    onClick={() => handleOpen(pendant.title)}
+                  >
                     Send Inquiry
                   </Button>
                 </Box>
               </Box>
-            </Grid>
+            </Box>
           </Grid>
-        </Box>
-      ))}
+        ))}
+      </Grid>
 
-      {/* Inquiry Form Modal */}
+      {/* Inquiry Modal */}
       <SendInquiryModal
         open={open}
         onClose={handleClose}
@@ -129,4 +152,3 @@ const DiamondPendantPage = () => {
 };
 
 export default DiamondPendantPage;
-
