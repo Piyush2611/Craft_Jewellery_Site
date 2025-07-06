@@ -6,6 +6,8 @@ import TanishqPopup from '../components/PopUp';
 import HeroSection from '../components/HeroSection';
 import HighClassJewelry from '../components/HighClassJewelry';
 import ShopByCategory from '../components/ShopByCategory';
+import AntiTarnish from '../components/intro';
+import WhatsNew from '../components/whatsnew';
 
 const JewelryHomePage = () => {
   return (
@@ -13,7 +15,9 @@ const JewelryHomePage = () => {
       {/* <Header /> */}
       <HeroSection />
       <HighClassJewelry />
+      <AntiTarnish/>
       <ShopByCategory />
+      <WhatsNew/>
       <TanishqPopup/>
       {/* <Footer/> */}
     </Box>
