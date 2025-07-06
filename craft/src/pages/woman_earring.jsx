@@ -1,130 +1,166 @@
-import React, { useState } from 'react';
-import { Box, Grid, Typography, Button } from '@mui/material';
-import womenEarring from '../assets/womenearing.jpg';
-import earingss from '../assets/earing1.jpg';
-import earings from '../assets/earings2.jpg';
-import SendInquiryModal from '../components/enquiryform';
+import React from 'react';
+import {
+  Box,
+  Grid,
+  Typography,
+  Link,
+} from '@mui/material';
+
+import handearing1 from '../assets/handearing1.avif';
+import handearing2 from '../assets/handearing2.avif';
+import handearing3 from '../assets/handearing3.avif';
+import handearing4 from '../assets/handearing4.avif';
+import handearing5 from '../assets/handearing5.avif';
+import handearing6 from '../assets/handearing6.avif';
+import handearing7 from '../assets/handearing7.avif';
+import handearing8 from '../assets/handearing8.avif';
+import handearing9 from '../assets/handearing9.avif';
+
+const earrings = [
+  {
+    img: handearing1,
+    title: 'AIRA Elegant Gold Hoop Earrings',
+    price: 199,
+    original: 2145,
+  },
+  {
+    img: handearing2,
+    title: 'AIRA Crystal Drop Earrings',
+    price: 199,
+    original: 2100,
+  },
+  {
+    img: handearing3,
+    title: 'AIRA Minimalist Stud Earrings',
+    price: 199,
+    original: 2075,
+  },
+  {
+    img: handearing4,
+    title: 'AIRA Sparkling Teardrop Earrings',
+    price: 199,
+    original: 2150,
+  },
+  {
+    img: handearing5,
+    title: 'AIRA Floral Diamond Cut Earrings',
+    price: 199,
+    original: 2120,
+  },
+  {
+    img: handearing6,
+    title: 'AIRA Classic Silver Hoops',
+    price: 199,
+    original: 2090,
+  },
+  {
+    img: handearing7,
+    title: 'AIRA Double Circle Earrings',
+    price: 199,
+    original: 2130,
+  },
+  {
+    img: handearing8,
+    title: 'AIRA Long Chain Tassel Earrings',
+    price: 199,
+    original: 2115,
+  },
+  {
+    img: handearing9,
+    title: 'AIRA Statement Gold Studs',
+    price: 199,
+    original: 2165,
+  },
+];
 
 const WomenEarringPage = () => {
-  const [open, setOpen] = useState(false);
-  const [selectedEarring, setSelectedEarring] = useState(null);
-
-  const description = `Explore our exquisite collection of women's earrings, designed to enhance every occasion.
-  From elegant studs to dazzling chandeliers, our selection offers a variety of styles to
-  complement your unique personality and fashion sense. Crafted with precision and care,
-  each piece reflects timeless beauty and quality.`;
-
-  const earringSections = [
-    {
-      image: earingss,
-      title: 'Elegant Stud Earrings',
-    },
-    {
-      image: earings,
-      title: 'Chandelier Drop Earrings',
-    },
-  ];
-
-  const handleOpen = (title) => {
-    setSelectedEarring(title);
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    setSelectedEarring(null);
-  };
-
   return (
-    <Box
-      sx={{
-        backgroundColor: '#fffaf5',
-        px: { xs: 4, md: 20 },
-        py: 8,
-        minHeight: '80vh',
-        color: 'black',
-      }}
-    >
-      {earringSections.map((section, index) => (
-        <Box
-          key={index}
-          sx={{
-            mt: index !== 0 ? 7 : 0,
-            pb: 5,
-            borderBottom: index !== earringSections.length - 1 ? '1px solid #ddd' : 'none',
-            position: 'relative',
-          }}
-        >
-          <Grid container justifyContent="space-between" alignItems="center">
-            {/* Image */}
-            <Grid item xs={12} md={6}>
+    <Box sx={{ px: 6, py: 6, bgcolor: '#ffffff' }}>
+      <Grid container spacing={4} justifyContent="center">
+        {earrings.map((earring, index) => (
+          <Grid item xs={12} sm={6} md={3} key={index}>
+            <Box
+              sx={{
+                border: '1px solid #eee',
+                borderRadius: 2,
+                overflow: 'hidden',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              {/* Image Container */}
               <Box
                 sx={{
-                  p: 2,
-                  borderRadius: 2,
-                  backgroundColor: '#f8f1e9',
-                  textAlign: 'center',
-                  height: '100%',
+                  width: '100%',
+                  height: 260,
+                  backgroundColor: '#f9f9f9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  overflow: 'hidden',
                 }}
               >
-                <img
-                  src={section.image}
-                  alt={section.title}
-                  style={{
-                    maxWidth: '100%',
-                    borderRadius: '8px',
-                    height: 'auto',
+                <Box
+                  component="img"
+                  src={earring.img}
+                  alt={earring.title}
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
                   }}
                 />
               </Box>
-            </Grid>
 
-            {/* Text */}
-            <Grid item xs={12} md={6}>
-              <Box
-                sx={{
-                  pl: { md: 4 },
-                  pr: { md: 2 },
-                  width: '800px',
-                  position: 'relative',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  minHeight: '100%',
-                }}
-              >
-                <Typography
-                  variant="h3"
+              {/* Content */}
+              <Box sx={{ p: 2, flexGrow: 1 }}>
+                <Link
+                  underline="none"
                   sx={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontWeight: 'bold',
-                    mb: 3,
-                    color: '#222',
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    display: 'block',
+                    color: '#000',
+                    mb: 1,
+                    '&:hover': { color: '#c79439' },
+                  }}
+                  href="#"
+                >
+                  {earring.title}
+                </Link>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '14px',
+                    fontWeight: 500,
+                    color: '#000',
                   }}
                 >
-                  {section.title}
+                  ₹{earring.price}
+                  <span style={{ textDecoration: 'line-through', color: '#444', marginLeft: 4 }}>
+                    ₹{earring.original}
+                  </span>
+                  <span
+                    style={{
+                      fontWeight: 700,
+                      color: '#000',
+                      background: '#f3f3f3',
+                      fontSize: '10px',
+                      padding: '2px 4px',
+                      marginLeft: 4,
+                      display: 'inline-block',
+                      borderRadius: '2px',
+                    }}
+                  >
+                    SAVE 90%
+                  </span>
                 </Typography>
-                <Typography variant="body1" sx={{ lineHeight: 1.7, color: '#444', mb: 6 }}>
-                  {description}
-                </Typography>
-
-                {/* Send Inquiry Button */}
-                <Box sx={{ mt: 'auto', display: 'flex', justifyContent: 'flex-end' }}>
-                  <Button variant="contained" color="primary" onClick={() => handleOpen(section.title)}>
-                    Send Inquiry
-                  </Button>
-                </Box>
               </Box>
-            </Grid>
+            </Box>
           </Grid>
-        </Box>
-      ))}
-
-      {/* Inquiry Form Modal */}
-      <SendInquiryModal
-        open={open}
-        onClose={handleClose}
-        selectedRing={selectedEarring}
-      />
+        ))}
+      </Grid>
     </Box>
   );
 };

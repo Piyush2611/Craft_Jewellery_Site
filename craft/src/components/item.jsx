@@ -8,10 +8,10 @@ import WeddingearingsPage from '../pages/woman_earring';
 import Cosmatics from '../pages/cosmatics';
 
 const categoryData = {
-    wedding_ring: WeddingRingPage,
-    diamond_pendant: DiamondPendantPage,
-    woman_earring:WeddingearingsPage,
-    cosmetics:Cosmatics
+    rings: WeddingRingPage,
+    necklaces: DiamondPendantPage,
+    earrings:WeddingearingsPage,
+    bracelets:Cosmatics
 };
 
 const CategoryPage = () => {

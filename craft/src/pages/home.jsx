@@ -16,9 +16,9 @@ const JewelryHomePage = () => {
       <HeroSection />
       <HighClassJewelry />
       <AntiTarnish/>
-      <ShopByCategory />
+      {/* <ShopByCategory /> */}
       <WhatsNew/>
-      <TanishqPopup/>
+      {/* <TanishqPopup/> */}
       {/* <Footer/> */}
     </Box>
   );
