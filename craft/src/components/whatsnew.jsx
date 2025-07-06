@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import Necklaxe from '../assets/Necklaxe.webp';
 import Earrings from '../assets/EARRINGS.webp';
 import Braclets from '../assets/BRACLATES.webp';
@@ -9,18 +10,22 @@ const items = [
   {
     label: 'EARRINGS',
     image: Earrings,
+    link: 'earrings',
   },
   {
     label: 'NECKLACES',
     image: Necklaxe,
+    link: 'necklaces',
   },
   {
     label: 'RINGS',
     image: Ringss,
+    link: 'rings',
   },
   {
     label: 'BRACELETS',
     image: Braclets,
+    link: 'bracelets',
   },
 ];
 
@@ -40,7 +45,7 @@ const WhatsNew = () => {
           fontSize: '16px',
           fontWeight: 400,
           mb: 4,
-           color: '#000',
+          color: '#000',
           textDecoration: 'underline',
         }}
       >
@@ -56,27 +61,37 @@ const WhatsNew = () => {
         {items.map((item, idx) => (
           <Grid item xs={12} sm={6} md={3} key={idx} sx={{ textAlign: 'center' }}>
             <Box
-              component="img"
-              src={item.image}
-              alt={item.label}
+              component={RouterLink}
+              to={`/category/${item.link}`} // 👈 navigates to route
               sx={{
-                width: '220px',
-                height: '220px',
-                borderRadius: '50%',
-                objectFit: 'cover',
-                mb: 1.5,
-              }}
-            />
-            <Typography
-              sx={{
-                fontSize: '10px',
-                fontFamily: 'Georgia, serif',
-                letterSpacing: '0.5px',
-                 color: '#000',
+                textDecoration: 'none',
+                color: 'inherit',
+                '&:hover': { opacity: 0.8 },
               }}
             >
-              {item.label}
-            </Typography>
+              <Box
+                component="img"
+                src={item.image}
+                alt={item.label}
+                sx={{
+                  width: '220px',
+                  height: '220px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  mb: 1.5,
+                }}
+              />
+              <Typography
+                sx={{
+                  fontSize: '10px',
+                  fontFamily: 'Georgia, serif',
+                  letterSpacing: '0.5px',
+                  color: '#000',
+                }}
+              >
+                {item.label}
+              </Typography>
+            </Box>
           </Grid>
         ))}
       </Grid>
